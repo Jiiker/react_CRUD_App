@@ -1,0 +1,19 @@
+.content-box {
+  background-color: white;
+  margin: auto;
+  max-width: 800px;
+
+  display: grid;
+}
+
+.input-box {
+  margin: auto;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.list-box {
+  display: flex;
+  justify-content: space-between;
+}

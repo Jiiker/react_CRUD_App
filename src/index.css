@@ -1,0 +1,8 @@
+body {
+  background-color: rgb(230, 190, 105);
+}
+
+.main-box {
+  margin: auto;
+  max-width: 800px;
+}
