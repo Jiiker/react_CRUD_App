@@ -12,7 +12,7 @@ export default function Main() {
     setItemList(e.target.value);
   }
   const handleMoneyInput = (e) => {
-    setItemValue(parseInt(e.target.value));
+    setItemValue(e.target.value);
   }
 
   const handleSubmit = (e) => {
@@ -35,31 +35,37 @@ export default function Main() {
     setExpenditList(deletedList);
   }
 
+  const handleDeleteAll = () => {
+    setExpenditList([]);
+  }
+
   return (
-    <content className='content-box'>
+    <section className='content-box'>
       <form className='input-box' onSubmit={handleSubmit}>
         <div className='expenditure-items'>
           <div className='expenditure-items-title'>지출 항목</div>
           <input type='text' name='item' onChange={handleTextInput}/>
         </div>
         <div className='spending-money'>
-          <div className='spending-money-title' onChange={handleMoneyInput}>비용</div>
-          <input type='number' name='money' />
+          <div className='spending-money-title'>비용</div>
+          <input type='number' name='money' onChange={handleMoneyInput}/>
         </div>
         <input className="submitBtn" type='submit' />
       </form>
       {expenditList.map((data) => (
-        <div className="list-box">
+        <div className="list-box" key={data.id}>
           <div>{data.item}</div>
-          <div>{parseInt(data.money)}원</div>
-          <button>수정</button>
-          <button onClick={handleDelete(data.id)}>삭제</button>
+          <div>{data.money}원</div>
+          <div>
+            <button>수정</button>
+            <button onClick={() => handleDelete(data.id)}>삭제</button>
+          </div>
         </div>
       ))}
-      <button>
+      <button onClick={() => handleDeleteAll()}>
         목록 지우기
         <delBtn />
       </button>
-    </content>
+    </section>
   );
 }
