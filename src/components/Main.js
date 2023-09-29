@@ -5,6 +5,8 @@ import { Lists } from "./Lists";
 export default function Main({ expenditList, setExpenditList }) {
   const [itemList, setItemList] = useState("");
   const [itemValue, setItemValue] = useState();
+  const [modifying, setModifying] = useState(false);
+  const [id, setId] = useState("");
 
   const handleTextInput = (e) => {
     setItemList(e.target.value);
@@ -15,6 +17,23 @@ export default function Main({ expenditList, setExpenditList }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (modifying === true) {
+      const submitBtn = document.querySelector(".submitBtn");
+      expenditList.filter((data) => {
+        if (data.id === id) {
+          data.item = e.target["item"].value;
+          data.money = e.target["money"].value;
+        }
+        return data;
+      });
+      submitBtn.value = "제출";
+      setModifying(false);
+      setId("");
+      e.target["item"].value = "";
+      e.target["money"].value = "";
+      return;
+    }
 
     let newList = {
       id: Date.now(),
@@ -55,7 +74,9 @@ export default function Main({ expenditList, setExpenditList }) {
           />
         </div>
         <div>
-          <input className='submitBtn' type='submit' />
+          <button className='submitBtn' type='submit'>
+            {modifying ? "수정" : "제출"}
+          </button>
         </div>
       </form>
       <Lists
@@ -65,6 +86,10 @@ export default function Main({ expenditList, setExpenditList }) {
         setItemValue={setItemValue}
         expenditList={expenditList}
         setExpenditList={setExpenditList}
+        modifying={modifying}
+        setModifying={setModifying}
+        id={id}
+        setId={setId}
       />
       <div>
         <button onClick={() => handleDeleteAll()}>목록 지우기</button>

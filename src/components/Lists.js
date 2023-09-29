@@ -7,6 +7,10 @@ export const Lists = ({
   setItemValue,
   expenditList,
   setExpenditList,
+  modifying,
+  setModifying,
+  id,
+  setId,
 }) => {
   const itemInput = document.querySelector("#item-input");
   const moneyInput = document.querySelector("#money-input");
@@ -16,6 +20,11 @@ export const Lists = ({
   const handleDelete = (id) => {
     let deletedList = expenditList.filter((data) => data.id !== id);
     setExpenditList(deletedList);
+  };
+
+  const handleModify = (id) => {
+    setModifying(true);
+    setId(id);
   };
 
   return (
