@@ -31,7 +31,9 @@ export default function Main({ expenditList, setExpenditList }) {
       setModifying(false);
       setId("");
       e.target["item"].value = "";
+      setItemList("");
       e.target["money"].value = "";
+      setItemValue(0);
       return;
     }
 
