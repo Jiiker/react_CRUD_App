@@ -15,8 +15,3 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
-.list-box {
-  display: flex;
-  justify-content: space-between;
-}

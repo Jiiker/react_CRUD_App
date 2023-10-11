@@ -1,0 +1,15 @@
+.list-box {
+  display: flex;
+}
+
+.list-content-box {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-buttons {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}

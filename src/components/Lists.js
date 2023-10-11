@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import "./Lists.css";
 
 export const Lists = ({
   itemList,
@@ -11,18 +12,26 @@ export const Lists = ({
   setModifying,
   id,
   setId,
+  handleMakeSum,
+  expenditSum,
+  setExpenditSum,
 }) => {
-  const itemInput = document.querySelector("#item-input");
-  const moneyInput = document.querySelector("#money-input");
-  const submitBtn = document.querySelector(".submitBtn");
-  const inputBox = document.querySelector(".input-box");
-
   const handleDelete = (id) => {
+    expenditList.map((data) => {
+      if (data.id === id) {
+        setExpenditSum(expenditSum - parseInt(data.money));
+      }
+    });
     let deletedList = expenditList.filter((data) => data.id !== id);
     setExpenditList(deletedList);
   };
 
   const handleModify = (id) => {
+    expenditList.map((data) => {
+      if (data.id === id) {
+        setExpenditSum(expenditSum - parseInt(data.money));
+      }
+    });
     setModifying(true);
     setId(id);
   };
@@ -31,9 +40,11 @@ export const Lists = ({
     <div>
       {expenditList.map((data) => (
         <div className='list-box' key={data.id}>
-          <div class='list-box-item'>{data.item}</div>
-          <div class='list-box-money'>{data.money}원</div>
-          <div>
+          <div className='list-content-box'>
+            <div class='list-box-item'>{data.item}</div>
+            <div class='list-box-money'>{data.money}원</div>
+          </div>
+          <div className='list-buttons'>
             <button onClick={() => handleModify(data.id)}>수정</button>
             <button onClick={() => handleDelete(data.id)}>삭제</button>
           </div>

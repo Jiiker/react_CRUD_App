@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import "./Main.css";
 import { Lists } from "./Lists";
 
-export default function Main({ expenditList, setExpenditList }) {
+export default function Main({
+  expenditList,
+  setExpenditList,
+  expenditSum,
+  setExpenditSum,
+}) {
   const [itemList, setItemList] = useState("");
   const [itemValue, setItemValue] = useState();
   const [modifying, setModifying] = useState(false);
@@ -24,6 +29,7 @@ export default function Main({ expenditList, setExpenditList }) {
         if (data.id === id) {
           data.item = e.target["item"].value;
           data.money = e.target["money"].value;
+          setExpenditSum(expenditSum + parseInt(data.money));
         }
         return data;
       });
@@ -43,6 +49,8 @@ export default function Main({ expenditList, setExpenditList }) {
       money: itemValue,
     };
 
+    setExpenditSum(expenditSum + parseInt(newList.money));
+
     setExpenditList((prev) => [...prev, newList]);
     e.target["item"].value = "";
     setItemList("");
@@ -52,6 +60,7 @@ export default function Main({ expenditList, setExpenditList }) {
 
   const handleDeleteAll = () => {
     setExpenditList([]);
+    setExpenditSum(0);
   };
 
   return (
@@ -92,6 +101,8 @@ export default function Main({ expenditList, setExpenditList }) {
         setModifying={setModifying}
         id={id}
         setId={setId}
+        expenditSum={expenditSum}
+        setExpenditSum={setExpenditSum}
       />
       <div>
         <button onClick={() => handleDeleteAll()}>목록 지우기</button>
