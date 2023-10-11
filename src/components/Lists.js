@@ -1,7 +1,7 @@
 import React from "react";
 import "./Lists.css";
 
-export const Lists = ({
+const Lists = ({
   itemList,
   setItemList,
   itemValue,
@@ -15,6 +15,7 @@ export const Lists = ({
   handleMakeSum,
   expenditSum,
   setExpenditSum,
+  handleAlert,
 }) => {
   const handleDelete = (id) => {
     expenditList.map((data) => {
@@ -24,6 +25,7 @@ export const Lists = ({
     });
     let deletedList = expenditList.filter((data) => data.id !== id);
     setExpenditList(deletedList);
+    handleAlert({ type: "danger", text: "아이템이 삭제되었습니다." });
   };
 
   const handleModify = (id) => {
@@ -53,3 +55,5 @@ export const Lists = ({
     </div>
   );
 };
+
+export default Lists;
