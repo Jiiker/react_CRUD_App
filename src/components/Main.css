@@ -2,16 +2,27 @@
   background-color: white;
   margin: auto;
   max-width: 800px;
-
-  display: grid;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .input-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 .modifying {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.submitBtn {
+  margin-bottom: 5px;
+}
+
+.allDelBtn {
+  margin-top: 5px;
 }

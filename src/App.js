@@ -9,15 +9,11 @@ export default function App() {
   const [alert, setAlert] = useState({ show: false });
 
   const handleAlert = ({ type, text }) => {
-    console.log(type, text);
-
     alert.show = true;
     alert.type = type;
     alert.text = text;
 
     setAlert(alert);
-
-    console.log(alert);
 
     setTimeout(() => {
       setAlert({ show: false });

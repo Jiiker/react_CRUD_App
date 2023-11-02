@@ -10,7 +10,7 @@ export default function Main({
   handleAlert,
 }) {
   const [itemList, setItemList] = useState("");
-  const [itemValue, setItemValue] = useState();
+  const [itemValue, setItemValue] = useState(0);
   const [modifying, setModifying] = useState(false);
   const [id, setId] = useState("");
 
@@ -109,7 +109,9 @@ export default function Main({
         handleAlert={handleAlert}
       />
       <div>
-        <button onClick={() => handleDeleteAll()}>목록 지우기</button>
+        <button className='allDelBtn' onClick={() => handleDeleteAll()}>
+          목록 지우기
+        </button>
       </div>
     </section>
   );

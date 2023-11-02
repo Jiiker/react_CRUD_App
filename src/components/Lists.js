@@ -42,7 +42,7 @@ const Lists = ({
     <div>
       {expenditList.map((data) => (
         <div className='list-box' key={data.id}>
-          <div className='list-content-box'>
+          <div className='list-box-contents'>
             <div class='list-box-item'>{data.item}</div>
             <div class='list-box-money'>{data.money}원</div>
           </div>

@@ -7,9 +7,9 @@
 }
 
 .alert-danger {
-  background-color: red;
+  background-color: #db4455;
 }
 
 .alert-success {
-  background-color: green;
+  background-color: #44db6f;
 }
