@@ -1,5 +1,5 @@
 # react_CRUD_App
-![CRUD](https://github.com/Jiiker/react_CRUD_App/assets/100774811/8829b0d7-58fa-42fc-9bee-b9fd83380422)
+![crud](https://github.com/Jiiker/react_CRUD_App/assets/100774811/85a02b19-5177-42f8-a598-831e7b6adc8e)
 
 ## [전체 구조]
 - App 컴포넌트 안에 생성, 수정, 삭제 시 알람 기능을 위한 Alert 컴포넌트와 CRUD 기능을 구현할 Main 컴포넌트를 만들어 줬음.
